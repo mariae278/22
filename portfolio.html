@@ -23,8 +23,143 @@
     <section>
       <h2>Projetos Desenvolvidos</h2>
       <ul>
-        <li><a href="#">Projeto 1 - Em breve</a></li>
-        <li><a href="#">Projeto 2 - Em breve</a></li>
+        <li>
+          <strong>Simulador de Compras com Desconto (Python):</strong><br>
+          <pre><code>nome = 'Maria Eduarda'
+sobrenome = 'Gonçalves Alves'
+print(f'Olá, Seja Bem Vindo(a), a loja da {nome} {sobrenome}!')
+
+preco = float(input('Digite o valor do produto (R$): '))
+quantidade = int(input('Digite a quantidade desejada: '))
+
+valor = preco * quantidade
+
+if valor < 2500:
+    desconto = 0
+elif valor < 6000:
+    desconto = 4
+elif valor < 10000:
+    desconto = 7
+else:
+    desconto = 11
+
+valor_com_desconto = valor * (1 - desconto / 100)
+
+print('\n==== RESUMO DO PEDIDO====')
+print(f'Preco: R$ {preco: .2f}')
+print(f'Quantidade: {quantidade}')
+print(f'Valor: R$ {valor: .2f}')
+print(f'Valor total com desconto: R$ {valor_com_desconto: .2f}')
+
+if valor >= 2500:
+    print('\nParabéns! Seu pedido recebeu um desconto.')
+</code></pre>
+        </li>
+        <li>
+          <strong>Sistema de Pedidos - Açaí e Cupuaçu (Python):</strong><br>
+          <pre><code># Mensagem de boas-vindas
+print("Bem-vindo(a) ao sistema de pedidos da loja de Açaí e Cupuaçu!")
+print("Desenvolvido por: Maria Eduarda Gonçalves Alves\n")
+
+total_pedido = 0.0
+
+print("Tabela de Preços - Loja de Açaí e Cupuaçu")
+print("-" * 40)
+print(f"{'Tamanho':<10} {'Cupuaçu (CP)':<15} {'Açaí (AC)':<10}")
+print("-" * 40)
+print(f"{'P':<10} R$ {9:<12} R$ {11}")
+print(f"{'M':<10} R$ {14:<12} R$ {16}")
+print(f"{'G':<10} R$ {18:<12} R$ {20}")
+print("-" * 40)
+
+while True:
+    sabor = input("Digite o sabor desejado (CP para Cupuaçu ou AC para Açaí): ").upper()
+    if sabor != "CP" and sabor != "AC":
+        print("Sabor inválido. Tente novamente.\n")
+        continue
+
+    tamanho = input("Digite o tamanho desejado (P, M ou G): ").upper()
+    if tamanho not in ["P", "M", "G"]:
+        print("Tamanho inválido. Tente novamente.\n")
+        continue
+
+    if sabor == "CP":
+        if tamanho == "P":
+            preco = 9
+        elif tamanho == "M":
+            preco = 14
+        else:
+            preco = 18
+    elif sabor == "AC":
+        if tamanho == "P":
+            preco = 11
+        elif tamanho == "M":
+            preco = 16
+        else:
+            preco = 20
+
+    total_pedido += preco
+    print(f"Pedido registrado: {'Cupuaçu' if sabor == 'CP' else 'Açaí'} tamanho {tamanho} - R$ {preco:.2f}\n")
+
+    mais = input("Deseja pedir mais alguma coisa? (S/N): ").upper()
+    if mais != "S":
+        break
+
+print(f"\nTotal do pedido: R$ {total_pedido:.2f}")
+print("Obrigado pela sua compra!\n")
+</code></pre>
+</li>
+        <li>
+          <strong>Sistema de Gerenciamento de Livros (Python):</strong><br>
+          <pre><code>print('Seja bem-vindo(a) à biblioteca da Maria Eduarda!')
+
+lista_livros = []
+id_global = 0
+
+def cadastrar_livro(id):
+    print('\n---Cadastrar Livro---')
+    id_global = input(f'Digite o ID do livro: ')
+    titulo = input(f'Digite o título do livro: ')
+    autor = input(f'Digite o autor do livro: ')
+    editora = input(f'Digite a editora do livro: ')
+    livro = {
+        'id': id_global,
+        'titulo': titulo,
+        'autor': autor,
+        'editora': editora
+    }
+    print(f'Livro cadastrado com sucesso!')
+    lista_livros.append(livro)
+    print(f'ID: {livro["id"]}')
+    print(f'Título: {livro["titulo"]}')
+    print(f'Autor: {livro["autor"]}')
+    print(f'Editora: {livro["editora"]}')
+
+...
+
+while True:
+    print('\n---Menu Principal---')
+    print('1. Cadastrar Livro')
+    print('2. Consultar Livro')
+    print('3. Remover Livro')
+    print('4. Encerra o programa')
+    opcao = input('Escolha uma opção: ')
+
+    if opcao == '1':
+        id_global += 1
+        cadastrar_livro(id_global)
+    elif opcao == '2':
+        consultar_livro()
+    elif opcao == '3':
+        remover_livro()
+    elif opcao == '4':
+        print('Encerrando o programa...')
+        break
+    else:
+        print('Opção inválida. Tente novamente.')
+        continue
+</code></pre>
+        </li>
       </ul>
     </section>
   </main>
